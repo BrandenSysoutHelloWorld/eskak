@@ -1,0 +1,39 @@
+<!--EXTEND FILE: 'base.html'-->
+{% extends 'shared/base.html' %}
+
+<!--SET BROWSER TAB TITLE-->
+{% block title %}{{ user.username }} - ESKAK{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <p class="fs-3 fw-mediumn ms-2 mb-0">WELCOME, {{ user.username|title }}</p>
+        <p class="fs-6 fw-light ms-2"><em>My Profile</em></p>
+
+    </div>
+    <div class="col">
+        <div class="d-flex gap-2 mt-3 ms-3">
+            <dl class="row">
+                <dt class="col-12 underline">
+                    <p class="fs-4 text-white">DETAILS</p>
+                </dt>
+                <dt class="col-sm-3">USERNAME</dt>
+                <dd class="col-sm-9 text-truncate">{{ user.username|title }}</dd>
+                <dt class="col-sm-3">EMAIL ADDRESS</dt>
+                <dd class="col-sm-9 text-truncate">{{ user.email }}</dd>
+                <dt class="col-sm-3">PASSWORD TOKEN</dt>
+                <dd class="col-sm-9 text-truncate">{{ user.password }}</dd>
+                <dd class="col-sm-9"><hr></dd>     
+                <dd class="col-sm-9">
+                    <dl class="row">
+                        <dt class="col-sm-4"><a href="#0" title="Delete Profile(not implemented!)" class="btn btn-outline-danger disabled">Delete Profile</a></dt>
+                        <dd class="col-sm-8"><a href="{% url 'eskak:previous_entry_view' %}" class="btn btn-outline-info" title="Inspect Electricity Unit Entry History">Inspect Entries</a></dd>
+                    </dl>
+                </dd>
+            </dl>          
+        </div>
+        
+        
+    </div>
+</div>
+{% endblock%}

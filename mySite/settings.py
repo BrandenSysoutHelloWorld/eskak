@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['wazaware.co.za', 'www.wazaware.co.za', '162.19.226.81', '127.0
 # Application definition
 
 INSTALLED_APPS = [
+    'users',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -1,0 +1,10 @@
+<!--EXTEND FILE: 'base.html'-->
+{% extends 'shared/base.html' %}
+
+<!--SET BROWSER TAB TITLE-->
+{% block title %}Logout - ESKAK{% endblock %}
+
+{% block content %}
+    <a href="{% url 'logout' %}" class="btn btn-outline-warning">LOGOUT</a>
+    <a href="{% url 'users:profile_view' %}" class="btn btn-outline-info">PROFILE</a>
+{% endblock%}

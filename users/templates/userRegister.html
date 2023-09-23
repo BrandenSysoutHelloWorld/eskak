@@ -1,0 +1,80 @@
+<!--EXTEND FILE: 'base.html'-->
+{% extends 'shared/base.html' %}
+
+<!--SET BROWSER TAB TITLE-->
+{% block title %}Register - ESKAK{% endblock %}
+
+{% block content %}
+<div class="p-2">
+    <div class="row">
+        <div class="col-12">
+            <p class="fs-3 fw-bolder text-start">Registering New User</p>
+        </div>
+        <div class="col">
+            <div class="border border-primary-subtle rounded">
+                <!--LOGIC WHICH HANDLES USER'S THAT ARE LOGGED ALREADY-->
+                {% if user.is_authenticated %}
+                    <p class="display-5">You are already logged in!</p>
+                    <a class="btn btn-outline-primary mb-3" href="{% url 'users:logout' %}">Logout?</a>
+                    <a class="btn btn-outline-primary mb-3" href="{% url 'users:profile_view' %}">View Profile?</a>
+                {% else %}
+                    <!--REGISTER FORM-->
+                    <form action="{% url 'users:create_user' %}" class="form-control align-items-center" method="post">
+                        {% csrf_token %}                    
+                        <div class="row gap-3">
+                            <!--ERROR MESSAGE-->
+                            {% if error_message %}
+                            <div class="col-12">
+                                <p class="cite text-danger-emphasis">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                                        <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+                                    </svg> {{ error_message }}
+                                    <p class="bolder text-secondary"><em>You can try again or <a href="{% url 'users:register_view'%}">Register...</a></em></p>
+                                </p>                            
+                            </div>
+                            {% endif %}
+                            <!--USERNAME LABEL & INPUT TAGS-->
+                            <div class="col-md-4 col-12">
+                                <div class="mb-3">
+                                    <label class="form-label" for="username">Username</label>
+                                    <input type="text" class="form-control" name="username" placeholder="John Doe" required>
+                                </div>
+                            </div>
+                            <!--EMAIL ADDRESS LABEL & INPUT TAGS-->
+                            <div class="col-md-4 col-12">
+                                <div class="mb-3">
+                                    <label class="form-label" for="email">Email Address</label>
+                                    <input type="email" class="form-control" name="email" placeholder="johndoe@example.com" required>
+                                </div>
+                            </div>
+                            <!--PASSWORD LABEL & INPUT TAGS-->
+                            <div class="col-md-4 col-12">
+                                <div class="mb-3">
+                                    <label class="form-label" for="password">Password</label>
+                                    <input type="password" class="form-control" name="password" placeholder="**********" required>
+                                </div>
+                            </div>
+                            <!--CONFIRM PASSWORD LABEL & INPUT TAGS-->
+                            <div class="col-md-4 col-12">
+                                <div class="mb-3">
+                                    <label class="form-label" for="confirm_password">Confirm Password</label>
+                                    <input type="password" class="form-control" name="confirm_password" placeholder="**********" required>
+                                </div>
+                            </div>
+                            <!--SUBMIT & ALTERNATIVE INPUT/BUTTON TAGS-->
+                            <div class="col-12 align-items-end">
+                                <div class="row g-3">
+                                    <div class="col">    
+                                        <input type="submit" class="btn btn-outline-primary mb-3" value="CONTINUE" />
+                                        <a class="btn btn-outline-secondary mb-3" href="{% url 'users:login_view' %}" title="LOGIN">Already Registered?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

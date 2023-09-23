@@ -1,0 +1,66 @@
+<!--EXTEND FILE: 'base.html'-->
+{% extends 'shared/base.html' %}
+
+<!--SET BROWSER TAB TITLE-->
+{% block title %}Login - ESKAK{% endblock %}
+
+{% block content %}
+<div class="container">
+    <p class="fs-3 fw-bolder"></p>
+</div>
+<div class="p-2">
+    <div class="row">
+        <div class="col-12">
+            <p class="fs-3 fw-bolder text-start">Login with Username</p>
+        </div>
+        <div class="col">
+            <div class="border border-primary-subtle rounded">
+                <!--LOGIC WHICH HANDLES USER'S THAT ARE LOGGED ALREADY-->
+                {% if user.is_authenticated %}
+                    <p class="display-5">You are already logged in!</p>
+                    <a class="btn btn-outline-primary mb-3" href="{% url 'users:logout' %}">Logout?</a>
+                    <a class="btn btn-outline-primary mb-3" href="{% url 'users:profile_view' %}">View Profile?</a>
+                {% else %}
+                    <!--REGISTER FORM-->
+                    <form action="{% url 'users:login_user' %}" class="form-control align-items-center" method="post">
+                        {% csrf_token %}                    
+                        <div class="row gap-3">
+                            <!--ERROR MESSAGE-->
+                            {% if error_message %}
+                            <div class="col-12">
+                                <p class="cite text-danger-emphasis">
+                                    <p class="bolder text-secondary"><em>You can try again or <a href="{% url 'users:register_view' %}">Register...</a></em></p>
+                                </p>                            
+                            </div>
+                            {% endif %}
+                            <!--USERNAME LABEL & INPUT TAGS-->
+                            <div class="col-md-4 col-12">
+                                <div class="mb-3">
+                                    <label class="form-label" for="username">Username</label>
+                                    <input type="text" class="form-control" name="username" placeholder="John Doe" required>
+                                </div>
+                            </div>
+                            <!--PASSWORD LABEL & INPUT TAGS-->
+                            <div class="col-md-4 col-12">
+                                <div class="mb-3">
+                                    <label class="form-label" for="password">Password</label>
+                                    <input type="password" class="form-control" name="password" placeholder="**********" required>
+                                </div>
+                            </div>
+                            <!--SUBMIT & ALTERNATIVE INPUT/BUTTON TAGS-->
+                            <div class="col-12 align-items-end">
+                                <div class="row g-3">
+                                    <div class="col">    
+                                        <input type="submit" class="btn btn-outline-primary mb-3" value="CONTINUE" />
+                                        <a class="btn btn-outline-secondary mb-3" href="{% url 'users:register_view' %}" title="Create New User">Not Registered?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                {% endif %} 
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
