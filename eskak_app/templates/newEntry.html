@@ -1,0 +1,48 @@
+<!--EXTEND FILE: 'base.html'-->
+{% extends 'shared/base.html' %}
+
+<!--SET BROWSER TAB TITLE-->
+{% block title %}NEW ENTRY - ESKAK{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="mx-auto p-2">
+        <p class="fs-1 fw-semibold mb-0">Record a New Entry</p>
+        <p class="fs-4 mt-0"><em>Fill out the form below with accurate information, read from your meter ...</em></p>
+    </div>
+    <hr>
+    <form action="{% url 'eskak:new_entry_create' %}" class="form-control" method="post">
+        {% csrf_token %}        
+        <div class="row gap-2">
+            <div class="col-md-4 col-12">
+                <label for="entryDate" class="form-label">ENTRY DATE</label>
+                <div class="input-group">
+                    <span class="input-group-text">Date Picker</span>
+                    <input type="date" class="form-control" id="entryDate" name="entryDate">
+                </div>
+                <div class="form-text">The date which you captured the units.</div>
+            </div>
+            <div class="col-md-4 col-12">
+                <label for="entryTime" class="form-label">TIME AT CAPTURE</label>
+                <div class="input-group">
+                    <span class="input-group-text">Time Selector</span>
+                    <input type="time" class="form-control" id="entryTime" name="entryTime">
+                </div>
+                <div class="form-text">The date which you captured the units.</div>
+            </div>
+            <div class="col-md-4 col-12">
+                <label for="entryUnits" class="form-label">ELECTRICITY UNITS</label>
+                <div class="input-group">
+                    <span class="input-group-text">Current Meter</span>
+                    <input type="number" class="form-control" id="entryUnits" placeholder="000" name="entryUnits">
+                </div>
+                <div class="form-text">The number on your meter.</div>
+            </div>
+            <div class="col-12 align-items-end mt-2">
+                <input type="submit" class="btn btn-outline-primary" value="CONTINUE">
+            </div>
+        </div>    
+    </form>
+</div>
+
+{% endblock %}
