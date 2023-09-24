@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-&rdhk0nztcdl5wnlg!clil)rfllp5ys&t*mp))-@1ju&xn94n1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['wazaware.co.za', 'www.wazaware.co.za', '162.19.226.81', '127.0.0.1:5000']
+ALLOWED_HOSTS = ['wazaware.co.za', 'https://wazaware.co.za', 'www.wazaware.co.za', '162.19.226.81', '127.0.0.1:5000']
 
 
 # Application definition
