@@ -47,7 +47,7 @@ CSRF_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT = False
 
 CORS_ALLOW_ALL_ORIGINS = True
-CSRF_TRUSTED_ORIGINS = ['wazaware.co.za', 'www.wazaware.co.za', '162.19.226.81', '127.0.0.1:5000']
+CSRF_TRUSTED_ORIGINS = ['wazaware.co.za', 'www.wazaware.co.za', '162.19.226.81', '127.0.0.1:5000', '127.0.0.1', 'localhost']
 
 ROOT_URLCONF = 'mySite.urls'
 
