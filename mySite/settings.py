@@ -29,7 +29,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "https://wazaware.co.za",
+]
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -47,7 +53,7 @@ CSRF_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT = False
 
 CORS_ALLOW_ALL_ORIGINS = True
-CSRF_TRUSTED_ORIGINS = ['wazaware.co.za', 'www.wazaware.co.za', '162.19.226.81', '127.0.0.1:5000']
+CSRF_TRUSTED_ORIGINS = ['wazaware.co.za', 'www.wazaware.co.za', '162.19.226.81', '127.0.0.1:5000', '127.0.0.1', 'localhost']
 
 ROOT_URLCONF = 'mySite.urls'
 
