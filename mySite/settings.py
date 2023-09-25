@@ -20,7 +20,8 @@ ALLOWED_HOSTS = ['wazaware.co.za', 'www.wazaware.co.za', '162.19.226.81', '127.0
 
 INSTALLED_APPS = [
     'eskak_app',
-    'users',
+    'users','
+    'corsheaders'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -29,9 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'https://wazaware.co.za', 'https://wazaware.co.za/users/create/'
-]
+CSRF_TRUSTED_ORIGINS = ['https://wazaware.co.za']
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
