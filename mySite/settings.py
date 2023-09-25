@@ -13,15 +13,17 @@ SECRET_KEY = 'django-insecure-&rdhk0nztcdl5wnlg!clil)rfllp5ys&t*mp))-@1ju&xn94n1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['wazaware.co.za', 'www.wazaware.co.za', '162.19.226.81', '127.0.0.1:5000', '127.0.0.1', 'localhost']
-
+# ALLOWED_HOSTS = ['https://wazaware.co.za', 'www.wazaware.co.za', '162.19.226.81', '127.0.0.1:5000', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = [
+    'https://wazaware.co.za', 
+]
 
 # Application definition
 
 INSTALLED_APPS = [
     'eskak_app',
-    'users','
-    'corsheaders'
+    'users',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -33,11 +35,9 @@ INSTALLED_APPS = [
 CSRF_TRUSTED_ORIGINS = ['https://wazaware.co.za']
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -47,12 +47,12 @@ MIDDLEWARE = [
 
 # Security & HTTPS settings
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = False
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = False
 
-CORS_ALLOW_ALL_ORIGINS = True
-CSRF_TRUSTED_ORIGINS = ['wazaware.co.za', 'www.wazaware.co.za', '162.19.226.81', '127.0.0.1:5000', '127.0.0.1', 'localhost']
+# CORS_ALLOW_ALL_ORIGINS = True
+# CSRF_TRUSTED_ORIGINS = ['wazaware.co.za', 'www.wazaware.co.za', '162.19.226.81', '127.0.0.1:5000', '127.0.0.1', 'localhost']
 
 ROOT_URLCONF = 'mySite.urls'
 
@@ -131,3 +131,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOWED_ORIGINS = [
+    'https://wazaware.co.za',
+]
