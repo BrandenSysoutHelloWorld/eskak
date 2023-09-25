@@ -30,7 +30,7 @@ INSTALLED_APPS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://wazaware.co.za/', 'https://wazaware.co.za/users/register/'
+    'https://wazaware.co.za', 'https://wazaware.co.za/users/create/'
 ]
 
 MIDDLEWARE = [
