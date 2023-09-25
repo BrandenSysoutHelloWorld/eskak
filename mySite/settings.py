@@ -29,7 +29,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "https://wazaware.co.za",
+]
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
