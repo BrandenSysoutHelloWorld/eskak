@@ -15,7 +15,7 @@ DEBUG = True
 
 # ALLOWED_HOSTS = ['https://wazaware.co.za', 'www.wazaware.co.za', '162.19.226.81', '127.0.0.1:5000', '127.0.0.1', 'localhost']
 ALLOWED_HOSTS = [
-    'https://wazaware.co.za', 
+    'wazaware.co.za', 
 ]
 
 # Application definition
