@@ -1,3 +1,3 @@
 # ESKAK - Track & Monitor Electricity Useage
 
-... its live @ [wazaware-eskak](http://example.com)
+... its live @ [ESKAK](http://wazaware.co.za)
