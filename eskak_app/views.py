@@ -8,7 +8,9 @@ from .models import Entry
 
 # LANDING VIEW
 def landing_view(request):
-    return render(request, 'landing.html')
+    # Generate the URL for the admin login page
+    admin_login_url = reverse('admin:login')
+    return HttpResponseRedirect(admin_login_url)
 
 # ENTRY CREATE VIEW
 def new_entry_view(request):
